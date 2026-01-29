@@ -83,39 +83,50 @@ ORDER BY 2 DESC;
 
 --BMI frequency among participants
 SELECT
-    CASE bmi_category
-        WHEN 'Normal Weight' THEN 'Normal'
-        ELSE bmi_category
-    END as bmi_category_cleaned,
+    bmi_category_cleaned,
     COUNT(*),
     ROUND(
         COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (),
         2
     ) AS percentage_of_total
-FROM sleepdata
+FROM (
+    SELECT
+        *,
+        CASE bmi_category
+            WHEN 'Normal Weight' THEN 'Normal'
+            ELSE bmi_category
+        END as bmi_category_cleaned
+    FROM sleepdata
+) as sleep_bmi
 GROUP BY 1
 ORDER BY 2 DESC;
 /*I'll make the assumption that both 'Normal Weight' and 'Normal' are part of the same category
 More than half the participants are considered 'normal' by BMI standards while only 2.67% are within the obese range*/
 
 --Daily steps range among participants
+WITH sleep_steps AS(
+    SELECT
+        *,
+         CASE 
+            WHEN daily_steps >= 3000 AND daily_steps < 4000 THEN '[3k-4k]'
+            WHEN daily_steps >= 4000 AND daily_steps < 5000 THEN '[4k-5k]'
+            WHEN daily_steps >= 5000 AND daily_steps < 6000 THEN '[5k-6k]'
+            WHEN daily_steps >= 6000 AND daily_steps < 7000 THEN '[6k-7k]'
+            WHEN daily_steps >= 7000 AND daily_steps < 8000 THEN '[7k-8k]'
+            WHEN daily_steps >= 8000 AND daily_steps < 9000 THEN '[8k-9k]'
+            WHEN daily_steps >= 9000 AND daily_steps < 10000 THEN '[9k-10k]'
+            ELSE '[10k+]'
+        END as daily_steps_bin
+    FROM sleepdata
+)
 SELECT
-    CASE 
-        WHEN daily_steps >= 3000 AND daily_steps < 4000 THEN '[3k-4k]'
-        WHEN daily_steps >= 4000 AND daily_steps < 5000 THEN '[4k-5k]'
-        WHEN daily_steps >= 5000 AND daily_steps < 6000 THEN '[5k-6k]'
-        WHEN daily_steps >= 6000 AND daily_steps < 7000 THEN '[6k-7k]'
-        WHEN daily_steps >= 7000 AND daily_steps < 8000 THEN '[7k-8k]'
-        WHEN daily_steps >= 8000 AND daily_steps < 9000 THEN '[8k-9k]'
-        WHEN daily_steps >= 9000 AND daily_steps < 10000 THEN '[9k-10k]'
-        ELSE '[10k+]'
-    END as daily_steps_bin,
+   daily_steps_bin,
     COUNT(*) as number_of_participants,
     ROUND(
         COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (),
         2
     ) AS percentage_of_total
-FROM sleepdata
+FROM sleep_steps
 GROUP BY 1
 ORDER BY 2 DESC;
 --Participants are well distributed between the range of 5k to 9k steps, with the range of 8k-9k being the predominant one

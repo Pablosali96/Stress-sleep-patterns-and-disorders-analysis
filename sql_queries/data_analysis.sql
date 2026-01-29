@@ -46,6 +46,17 @@ GROUP BY 1
 ORDER BY 2 DESC;
 --High levels of physical activity are not directly correlated low blood pressure
 
+--Stress level and sleep duration in relation to demographics and sleep disorder
+SELECT
+    gender,
+    sleep_disorder,
+    COUNT(*),
+    ROUND(AVG(sleep_duration),2) as avg_sleep_duration,
+    ROUND(AVG(stress_level),2) as avg_stress_level
+FROM sleepdata
+GROUP BY 1,2
+ORDER BY 1,4 DESC;
+
 --Average sleep duration per gender and occupation
 SELECT
     gender,
