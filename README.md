@@ -129,8 +129,54 @@ ORDER BY 2 DESC;
 ### 1. How does sleeping hours differ between males and female?
 
 
-![Male vs Female Sleep Duration](assets/Male%20vs%20Female%20Sleep%20Duration.png)
+![Male vs Female Sleep Duration](assets/Gender%20Sleep%20Duration.png)
+
+The graph shows the difference in sleep duration between Females and Males broken down by age group.
+
+For this analysis, I had to exclude female between the age groups of 50 to 60 years old. Males were not represented in these age groups which changes the results of the calculation and put females on top among both groups.
+
+We can see that males are sleeping a bit more than females in all age groups but 25-30. The difference is more notorious in the groups 30-35 and 45-50
+
+### 2. What ages and occupations suffer the most from sleep disorders?
+
+#### Insomnia
+![Insomnia Analysis](assets/Insomnia%20Analysis.png)
+
+The graph shows a breakdown of the participants with insomnia by gender, age group and profession.
+
+We can see an almost 60/40% split between males and females respectively of those who suffer insomnia. We also see that most of them are between the ages of 40-45 years old and the professions of Salesperson and Teachers are the most affected.
+
+
+#### Sleep Apnea
+![Sleep Apnea Analysis](assets/Sleep%20Apnea%20Analysis.png)
+
+The graph shows a breakdown of the participants with sleep apnea by gender, age group and profession.
+
+As with the previous disorder, the split between of males and females is almost 60/40% respectively. The age group of 45-50 years old is the most affected by this disorder with Nurses being on top of the profession followed by Doctors and Teachers.
+
+### 3. Does high levels of stress influence sleeping patterns and disorders?
+
+![Sleep Duration vs Stress Level Graph](assets/Sleep%20Duration%20vs%20Stress%20Levels.png)
+
+The graph illustrates the average sleep duration with the average stress levels by age group.
+
+The group of 25-30 years old present the least amount of hours of sleep which may be one of the factors that influence their high levels of stress (being top 1) while the group of 35-40 years old shows the opposite pattern.
+
+![Sleep Duration Stress Level Corr](assets/Sleep%20Duration%20Stress%20Level%20Correlation.png)
+Note: The axis in this graph do not start from 0.
+
+Here we see a negative correlation between the Sleep Duration and the Stress Level. The more hours of sleep an individual presents, the less stress their gonna suffer overall. This may be just one of the factor among the many that were not present in the dataset, but it can be a high influential one.
 
 ## Key Insights
 
-## Conclusion 
+1. Males overall sleep more than females among all age groups with one exception.
+
+2. Sleep disorders affects, the most, participants between the ages of 40-50 years old with Teachers being the most affected by both insomnia and sleep apnea. 
+
+3. There is a strong negative correlation between the amount of hours slept and the stress levels.
+
+## Conclusion & Next Steps
+
+Both genders have similar sleeping patterns when we refer to the hours they sleep and the disorders they suffer. Stress and hours of sleep do have a negative correlation with young participants sleeping less and presenting higher levels of stress. 
+
+More lifestyle variables such as alcohol consumption, smoking status, caffeine intake and employment status could bring us closer into finding how stress levels and sleep patterns relate. 

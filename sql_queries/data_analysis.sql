@@ -18,7 +18,8 @@ WITH sleep_set AS (
 SELECT
     gender,
     age_bins,
-    ROUND(AVG(quality_of_sleep),2) as avg_quality_of_sleep
+    ROUND(AVG(quality_of_sleep),2) as avg_quality_of_sleep,
+    ROUND(AVG(sleep_duration),2) as avg_sleep_duration
 FROM sleep_set
 GROUP BY 1,2
 ORDER BY 1,3 DESC;
