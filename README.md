@@ -7,6 +7,8 @@ This project analyzes the relationship between stress levels, sleep durations an
 The results show that sleep duration is similar among genders and age groups, but those within the ages of 40-50, specially in areas of health and education, show higher prevalence of sleep disorders. Additionally, the analysis shows a clear inverse relationship between sleep duration and stress levels, suggesting that reduced time of sleep may indicate higher levels of reported stress. 
 
 SQL queries can be found here: [sql_queries](/sql_queries/) 
+
+Dashboards and visualizations can be found here: [Dashboards](https://public.tableau.com/views/TableauSleepdataset/SleepDatasetAnalysis?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 ## Analytical Questions
 
 The questions that guided this project were:
